@@ -3,7 +3,7 @@ import pygame
 #Librerias creadas
 pygame.init()
 
-width, height = 1000, 1000
+width, height = 800, 800
 screen = pygame.display.set_mode((height,width))
 
 #color de fondo casi negro oscuro
@@ -12,7 +12,7 @@ bg = 25, 25, 25
 screen.fill(bg)
 
 
-nxC, nyC = 25, 25
+nxC, nyC = 30, 30
 
 dimCW = width/nxC
 dimCH = height/nyC
