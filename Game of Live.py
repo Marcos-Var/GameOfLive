@@ -56,7 +56,15 @@ while True:
                     ((x+1) * dimCW, (y+1) *dimCH ),
                     ((x)   * dimCW, (y+1)    * dimCH)]
             
-            pygame.draw.polygon(screen, (128, 128, 128), poly, 1)
+
+            # Y dibujamos la celda para cada par de x e y
+            if newGameState[x, y] == 0:
+                pygame.draw.polygon(screen,(128, 128, 128), poly, 1)
+            else:
+                pygame.draw.polygon(screen,(255, 255, 255), poly, 0)
     
+    #actualizamos el estado del juego
+    gameState = np.copy(newGameState)
+    #actualizar la pantalla
     pygame.display.flip()
     
