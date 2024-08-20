@@ -1,5 +1,7 @@
 import numpy as np
 import pygame
+import time
+
 #Librerias creadas
 pygame.init()
 
@@ -10,6 +12,7 @@ screen = pygame.display.set_mode((height,width))
 bg = 25, 25, 25
 #pintando el fondo
 screen.fill(bg)
+time.sleep(0.1)
 
 
 nxC, nyC = 30, 30
@@ -36,6 +39,8 @@ gameState[5,5] =1
 while True:
 
     newGameState = np.copy(gameState)
+
+    screen.fill(bg)
 
     for y in range(0, nxC):
         for x in range(0, nyC):
