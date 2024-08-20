@@ -22,7 +22,7 @@ dimCH = height/nyC
 ## Estructura de datos para el juego
 
 # Estado de las celdas. vivas=1; Muertas = 0
-gameState = np.zoros((nxC, nyC))
+gameState = np.zeros((nxC, nyC))
 
 #creamos automatas para probar
 
