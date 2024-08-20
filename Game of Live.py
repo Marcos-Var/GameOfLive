@@ -24,6 +24,9 @@ gameState = np.zoros((nxC, nyC))
 
 # Bucle en ejecución
 while True:
+
+    newGameState = np.copy(gameState)
+
     for y in range(0, nxC):
         for x in range(0, nyC):
 
@@ -41,11 +44,11 @@ while True:
 
             # Regla 1 : Un celula muesta con mas de 3 vecinas vivas, revive
             if gameState[x, y] == 0 and n_neigt == 3:
-                gameState[x, y] = 1
+                newGameState[x, y] = 1
 
             # Regla 2 : un celula viva con menos de 2 o mas de 3 vecinas vivas, muere
             elif gameState[x, y] == 1 and n_neigt <= 2 or n_neigt > 3:
-                gameState[x, y] = 0
+                newGameState[x, y] = 0
 
             #Creamos el pologono de cada celda a dibujar.
             poly = [((x)   * dimCW, y    * dimCH),
