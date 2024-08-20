@@ -17,7 +17,10 @@ nxC, nyC = 30, 30
 dimCW = width/nxC
 dimCH = height/nyC
 
+## Estructura de datos para el juego
 
+# Estado de las celdas. vivas=1; Muertas = 0
+gameState = np.zoros((nxC, nyC))
 
 # Bucle en ejecución
 while True:
@@ -29,8 +32,6 @@ while True:
                     ((x+1) * dimCW, (y+1) *dimCH ),
                     ((x)   * dimCW, (y+1)    * dimCH)]
             
-
-
             pygame.draw.polygon(screen, (128, 128, 128), poly, 1)
     
     pygame.display.flip()
