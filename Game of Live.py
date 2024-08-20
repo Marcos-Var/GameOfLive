@@ -32,5 +32,6 @@ while True:
 
 
             pygame.draw.polygon(screen, (128, 128, 128), poly, 1)
-
+    
+    pygame.display.flip()
     
