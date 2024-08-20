@@ -29,16 +29,17 @@ while True:
 
 
             #calculamos el numero de vecinos cercanos.
-            n_neigt = gameState[(x-1), (y-1)] + \
-                      gameState[(x),   (y-1)] + \
-                      gameState[(x+1), (y-1)] + \
-                      gameState[(x-1), (y)] + \
-                      gameState[(x+1), (y)] + \
-                      gameState[(x-1), (y+1)] + \
-                      gameState[(x),   (y+1)] + \
-                      gameState[(x+1), (y+1)]
+            n_neigt = gameState[(x-1) % nxC, (y-1) % nyC] + \
+                      gameState[(x)   % nxC, (y-1) % nyC] + \
+                      gameState[(x+1) % nxC, (y-1) % nyC] + \
+                      gameState[(x-1) % nxC, (y)   % nyC] + \
+                      gameState[(x+1) % nxC, (y)   % nyC] + \
+                      gameState[(x-1) % nxC, (y+1) % nyC] + \
+                      gameState[(x)   % nxC, (y+1) % nyC] + \
+                      gameState[(x+1) % nxC, (y+1) % nyC]
             
-        
+
+
 
             #Creamos el pologono de cada celda a dibujar.
             poly = [((x)   * dimCW, y    * dimCH),
