@@ -11,8 +11,7 @@ screen = pygame.display.set_mode((height,width))
 #color de fondo casi negro oscuro
 bg = 25, 25, 25
 #pintando el fondo
-screen.fill(bg)
-time.sleep(0.1)
+
 
 
 nxC, nyC = 30, 30
@@ -41,6 +40,7 @@ while True:
     newGameState = np.copy(gameState)
 
     screen.fill(bg)
+    time.sleep(0.1)
 
     for y in range(0, nxC):
         for x in range(0, nyC):
