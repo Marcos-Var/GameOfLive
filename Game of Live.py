@@ -22,6 +22,16 @@ dimCH = height/nyC
 # Estado de las celdas. vivas=1; Muertas = 0
 gameState = np.zoros((nxC, nyC))
 
+#creamos automatas para probar
+
+#automata palo
+gameState[5,3] =1
+gameState[5,4] =1
+gameState[5,5] =1
+
+
+
+
 # Bucle en ejecución
 while True:
 
