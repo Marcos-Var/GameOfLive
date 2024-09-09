@@ -35,7 +35,8 @@ gameState[22,23] = 1
 gameState[21,23] = 1
 gameState[20,23] = 1
 
-
+#Control de ejecucion del juego
+pauseExect = False
 
 # Bucle en ejecución
 while True:
@@ -45,28 +46,41 @@ while True:
     screen.fill(bg)
     time.sleep(0.07)
 
+    #Registramos eventos del Teclado y raton
+    ev = pygame.event.get()
+
+    for event in ev:
+        if event.type == pygame.KEYDOWN:
+            pauseExect = not pauseExect
+
+
+
     for y in range(0, nxC):
         for x in range(0, nyC):
 
 
-            #calculamos el numero de vecinos cercanos.
-            n_neigt = gameState[(x-1) % nxC, (y-1) % nyC] + \
-                      gameState[(x)   % nxC, (y-1) % nyC] + \
-                      gameState[(x+1) % nxC, (y-1) % nyC] + \
-                      gameState[(x-1) % nxC, (y)   % nyC] + \
-                      gameState[(x+1) % nxC, (y)   % nyC] + \
-                      gameState[(x-1) % nxC, (y+1) % nyC] + \
-                      gameState[(x)   % nxC, (y+1) % nyC] + \
-                      gameState[(x+1) % nxC, (y+1) % nyC]
+            if not pauseExect:
+                
+                #calculamos el numero de vecinos cercanos.
+                n_neigt = gameState[(x-1) % nxC, (y-1) % nyC] + \
+                        gameState[(x)   % nxC, (y-1) % nyC] + \
+                        gameState[(x+1) % nxC, (y-1) % nyC] + \
+                        gameState[(x-1) % nxC, (y)   % nyC] + \
+                        gameState[(x+1) % nxC, (y)   % nyC] + \
+                        gameState[(x-1) % nxC, (y+1) % nyC] + \
+                        gameState[(x)   % nxC, (y+1) % nyC] + \
+                        gameState[(x+1) % nxC, (y+1) % nyC]
+                
+
+                # Regla 1 : Un celula muerta con mas de 3 vecinas vivas, revive
+                if gameState[x, y] == 1 and (n_neigt < 2 or n_neigt > 3):
+                    newGameState[x, y] = 0
+
+                # Regla 2 : un celula viva con menos de 2 o mas de 3 vecinas vivas, muere
+                elif gameState[x, y] == 0 and n_neigt == 3:
+                    newGameState[x, y] = 1
+
             
-
-            # Regla 1 : Un celula muerta con mas de 3 vecinas vivas, revive
-            if gameState[x, y] == 1 and (n_neigt < 2 or n_neigt > 3):
-                newGameState[x, y] = 0
-
-            # Regla 2 : un celula viva con menos de 2 o mas de 3 vecinas vivas, muere
-            elif gameState[x, y] == 0 and n_neigt == 3:
-                newGameState[x, y] = 1
 
             #Creamos el pologono de cada celda a dibujar.
             poly = [((x)   * dimCW, y    * dimCH),
