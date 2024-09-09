@@ -54,6 +54,12 @@ while True:
             pauseExect = not pauseExect
 
 
+        # evento para cerrar
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
+
+
 
     for y in range(0, nxC):
         for x in range(0, nyC):
