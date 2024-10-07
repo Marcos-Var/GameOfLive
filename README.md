@@ -13,8 +13,8 @@ El juego de la vida fue creado en 1970 por el Matemático John Conway, que lamen
 
 En una grilla de celdas cuadradas y cada una puede tener dos estados (viva o muerta), solo hay 2 reglas del juego:
 
-1ra regla: Toda celda muerta con 3 vecinas vivas, vuelve a la vida.
-2da regla: Toda celda viva con menos de 2 o más de 3 vecinas vivas, muere.
+* 1ra regla: Toda celda muerta con 3 vecinas vivas, vuelve a la vida.
+* 2da regla: Toda celda viva con menos de 2 o más de 3 vecinas vivas, muere.
 
 mediate esta lógica de reglas se creará la próxima generacion de celdas. Luego la siguente y asi automáticamente
 
